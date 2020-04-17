@@ -25,4 +25,12 @@ public class CompositePersonnels implements PersInterface, Serializable {
 	public void remove(PersInterface p) {
 		childPersonnels.remove(p);
 	}
+	
+	public String toString() {
+		String str = "";
+		for(PersInterface p : childPersonnels) {
+			str = str + p.toString();
+		}
+		return str;
+	}
 }
