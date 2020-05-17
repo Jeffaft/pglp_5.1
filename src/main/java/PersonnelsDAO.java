@@ -1,5 +1,3 @@
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.io.*;
 public class PersonnelsDAO implements DAO<Personnels>{
 	
@@ -23,6 +21,16 @@ public class PersonnelsDAO implements DAO<Personnels>{
 	
 	@Override
 	public void write(Personnels p,String file) {
+		try {
+
+			FileOutputStream out = new FileOutputStream(file);
+	        ObjectOutputStream oout = new ObjectOutputStream(out);
+	        oout.writeObject(p);
+	        oout.close();
+		}
+		catch (Exception ex) {
+	         ex.printStackTrace();
+	      }
 		
 	}
 	

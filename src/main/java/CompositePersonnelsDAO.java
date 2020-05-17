@@ -1,5 +1,7 @@
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class CompositePersonnelsDAO implements DAO<CompositePersonnels> {
 	public CompositePersonnelsDAO() {
@@ -22,7 +24,16 @@ public class CompositePersonnelsDAO implements DAO<CompositePersonnels> {
 	
 	@Override
 	public void write(CompositePersonnels cp,String file) {
-		
+		try {
+
+			FileOutputStream out = new FileOutputStream(file);
+	        ObjectOutputStream oout = new ObjectOutputStream(out);
+	        oout.writeObject(cp);
+	        oout.close();
+		}
+		catch (Exception ex) {
+	         ex.printStackTrace();
+	      }
 	}
 	
 	@Override
