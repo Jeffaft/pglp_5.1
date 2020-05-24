@@ -35,7 +35,7 @@
 	          			<manifest>
 	            			<addClasspath>true</addClasspath>
 	            			<classpathPrefix>lib/</classpathPrefix>
-	            			<mainClass>com.pgl_4.uvsq21603794.ApplicationSingleton</mainClass>
+	            			<mainClass></mainClass>
 	         			 </manifest>
         			</archive>
       			</configuration>
@@ -71,6 +71,30 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.1.1</version>
 			</plugin>
+			<plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <configuration>
+		          <descriptorRefs>
+		            <descriptorRef>jar-with-dependencies</descriptorRef>
+		          </descriptorRefs>
+		          <finalName>pglp_5.1</finalName>
+		          <appendAssemblyId>true</appendAssemblyId>
+		          <archive>
+		            <manifest>
+		              <mainClass>App</mainClass>
+		            </manifest>
+		          </archive>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>make-assembly</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>single</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
 		</plugins>
 	</build>
   <dependencies>
